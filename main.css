@@ -1,3 +1,7 @@
+.content {
+	margin: 20pt;
+}
+
 .title {
 	text-align: center;
 	height: 50vh;
@@ -12,7 +16,12 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	font-family: dot_matrix;
-	font-size: 50px;
+	font-size: 40pt;
+}
+
+h2 {
+	font-family: dot_matrix;
+	font-size: 30pt;
 }
 
 
@@ -24,20 +33,33 @@
 @font-face {
 	font-family: dot_matrix;
 	src: url(fonts/dot_matrix/DOTMATRI.TTF);
-  }
+}
 
 .gallery {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-evenly;
 }
 
 .gallery_item {
 	width: 500pt;
 	height: 600pt;
-	padding: 10pt;
 }
 .gallery_item > img {
 	width: 100%;
 	aspect-ratio: 1;
 	object-fit: cover;
+}
+
+.card, .gallery_item {
+	background-color: white;
+	box-shadow: 0 0 10pt;
+	padding: 10pt;
+	margin: 10pt;
+}
+
+.home_button {
+	z-index: 10;
+	font-family: dot_matrix;
+	font-size: 15pt;
 }
