@@ -14,17 +14,65 @@
 				<h1>Kaleidescpe</h1>
 			</div>
 			<div class="content">
-				<h3><a href="https://github.com/hdombach/kaleidoscope">github</a></h3>
-				<p>
-					A WIP program for rendering fractals.</br>
-					This project is the successor of <a href="../fractal_renderer/index.html">Fractal Renderer</a>
-					The goal is to create another renderer that is slightly more general purpose. I plan on adding
-					support for meshes and texture for example. (The original fractal renderer could only render shapes defined
-					by an SDL).
-				</p>
-				<p>
-				</p>
+				<div class="gallery stack">
+					<div class="card stack">
+						<p>
+							A WIP program for rendering fractals.</br>
+							This project is the successor of <a href="../fractal_renderer/index.html">fractal renderer</a>.</br>
+							The goal is to create another renderer that is slightly more general purpose. I plan on adding
+							support for meshes and texture for example. (The original fractal renderer could only render shapes defined
+							by an SDL).
+						</p>
+					</div>
+
+					<div class="card">
+						<h3>Render passes</h3>
+						<p>
+						There are several requirements that all went into how I designed project.</br>
+						To begin with, there are several different permutations which mean there
+						are a large number of render modes.</br>
+						Render pass types
+						<ul>
+							<li>Preview render pass: Rasterizer based renderer for editing the scene</li>
+							<li>Raytrace render pass: A blend of raytract and raymarch to render the final image</li>
+						</ul>
+						Object types
+						<ul>
+							<li>Mesh: Traditional collection of triangles</li>
+							<li>SDF: Distance function for mandelblulbs and mandelboxes</li>
+							<li>Voxel octree <i>OPTIONAL</i></li>
+						</ul>
+
+						My first choice was to make abstract descriptions of nodes, materials,
+						and shapes. The preview and raytrace renderpass have specialized
+						collection of objects mirroring the abstract description. I made sure
+						to not even share things like used vulkan buffers. This allows
+						for further flexibility when developing in the future. Changes can
+						be made to either preview and raytrace seperately including
+						optimizations.</br>
+						For example, the raytrace would benefit from having a BVH to accelerate
+						intersection tests. The preview render pass can also benefit from
+						having instanced rendering.</br>
+						As an added benefit, there is a nice seperation between the scene
+						and vulkan.</br>
+						</br>
+						<b>Preview Render Pass</b></br>
+						Meshes are straightforward to render. Everything else can be rendered as
+						a cube (the AABB) with some custom shaders to render either the
+						voxel octree or SDF. Making sure the depth buffer is properly updated
+						might be complicated.</br>
+						<b>Raytrace Render Pass</b></br>
+						Everything will be based around AABB's. Once a ray intersects one,
+						it can run a custom intersection test on either a mesh, SDF, or another
+						AABB. The added benefit is that this already works as a BVH</br>
+						</br>
+						<i>08/03/2024</i>
+						</p>
+					</div>
+
+				</div>
 				<hr>
+				<a href="https://github.com/hdombach/kaleidoscope">github</a>
 				<h2>Gallery</h2>
 				<p>
 					Nothing here yet since I am still setting up the vulkan pipeline.
