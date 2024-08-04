@@ -33,38 +33,72 @@ h3 {
 :root {
 	font-family: Verdana,sans-serif;
 	background-color:rgb(199, 199, 199);
+	background-color: rgb(220 220 220 / 70%);
 }
 
 @font-face {
 	font-family: dot_matrix;
-	src: url(fonts/dot_matrix/DOTMATRI.TTF);
-}
-
-.gallery {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-}
-
-.gallery_item {
-	width: 500pt;
-	height: 600pt;
-}
-.gallery_item > img {
-	width: 100%;
-	aspect-ratio: 1;
-	object-fit: cover;
-}
-
-.card, .gallery_item {
-	background-color: white;
-	box-shadow: 0 0 10pt;
-	padding: 10pt;
-	margin: 10pt;
+	src: url(fonts/hack_nerd/HackNerdFont-Regular.ttf);
 }
 
 .home_button {
 	z-index: 10;
+	margin: 20px;
 	font-family: dot_matrix;
 	font-size: 20pt;
 }
+
+body {
+	margin: 0;
+	background-image: url(assets/noise.jpg);
+	background-size: 400px;
+}
+
+.background {
+	background-color: rgb(220 220 220 / 70%);
+}
+
+.gallery {
+	display: flex;
+}
+
+.wrap {
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.stack {
+	display: flex;
+	justify-content: center;
+}
+
+.image_card {
+	width: 300pt;
+}
+.image_card > img {
+	width: 100%;
+	aspect-ratio: 5 / 3;
+	object-fit: cover;
+}
+
+.card {
+	background-color: white;
+	padding: 20px;
+	padding-bottom: 10px;
+	position: relative;
+	margin-bottom: 40px;
+	max-width: 800px;
+	filter: drop-shadow(2px 3px 0 rgb(170 170 170));
+}
+
+.card::after {
+	content: "";
+	position: absolute;
+	top: 99%;
+	height: 20px;
+	width: 100%;
+	left: 0;
+	background: url(assets/torn-paper.png) bottom;
+	background-size: contain;
+}
+

@@ -8,39 +8,42 @@
 		<link rel="stylesheet" href="../main.css">
 	</head>
 	<body>
-		<a href="../index.html" class="home_button">Home</a>
-		<div class="title">
-			<h1>Fractal Renderer</h1>
- 		</div>
-		<div class="content">
-			<h3><a href="https://github.com/hdombach/Fractal-Renderer">github</a></h3>
-			<p>
-				A project was for rendering fractals using raymarching.</br>
-				This was my first main project that I worked on.
-				I found out about a fractal online called a mandelbulb that could
-				be rendered using SDF's. I quickly made a simple renderer
-				using Swift and Metal. Over the next couple months, I continued to impliment
-				more features. I improved the rendering to be more akin to a raytracer.
-				I added setting to change the material and eventually impimented a node graph
-				editor to control the shaders (inspired by Blender). Afterwards, I extended 
-				the node graph so it could control the SDL as well. </br>
-				I am currently working on rewriting the program in c++ with vulkan in the
-				<a href="../kaleidescope/index.html">Kaleidescope</a> program
-			</p>
-			<hr>
-			<h2>Gallery</h2>
-			<div class="gallery">
-				<div class="gallery_item">
-					<img src="./images/night_city.png"/>
-					<h2>Night City</h2>
+		<div class="background">
+			<a href="../index.html" class="home_button">Home</a>
+			<div class="title">
+				<h1>Fractal Renderer</h1>
+			</div>
+			<div class="content">
+				<div class="gallery stack">
+					<div class="card">
+						A project for rendering fractals using raymarching.</br>
+						It started off as a voxel raytracer to render 3D julia sets.
+						Later on, I discovered a fractal called a mandelbulb and transitioned to
+						rendering it. (It used a different algorithm called <a href="https://en.wikipedia.org/wiki/Ray_marching">raymarching</a>).
+						I developed it more by adding different materials along with a node
+						graph editor to edit the materials (inspired by Blender). </br>
+
+						I am currently working on rewriting the program in c++ with vulkan in the
+						<a href="../kaleidescope/index.html">Kaleidescope</a> program
+						<hr>
+						<a href="https://github.com/hdombach/Fractal-Renderer">github</a>
+					</div>
 				</div>
-				<div class="gallery_item">
-					<img src="./images/towers.png"/>
-					<h2>Towers</h2>
-				</div>
-				<div class="gallery_item">
-					<img src="./images/tree.jpg"/>
-					<h2>Tree</h2>
+				<hr>
+				<h2>Gallery</h2>
+				<div class="gallery wrap">
+					<div class="card image_card">
+						<img src="./images/night_city.png"/>
+						<h2>Night City</h2>
+					</div>
+					<div class="card image_card">
+						<img src="./images/towers.png"/>
+						<h2>Towers</h2>
+					</div>
+					<div class="card image_card">
+						<img src="./images/tree.jpg"/>
+						<h2>Tree</h2>
+					</div>
 				</div>
 			</div>
 		</div>
